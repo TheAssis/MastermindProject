@@ -1,0 +1,69 @@
+#include<iostream>
+#include<locale.h>
+using namespace std;
+
+int main ()
+{
+    setlocale(LC_ALL,"Portuguese");
+    // descobrindo a quantidade de jogadores
+    int quantidade_de_jogadores;
+    cout << "Digite a quantidade de jogadores";
+    cin >> quantidade_de_jogadores;
+
+    if (quantidade_de_jogadores ==1)
+    {
+        char nome_do_jogador[6]; // string para armazenar o nome do jogador
+
+        cout << "Olá, por favor, digite nome de jogador: ";
+        cin>> nome_do_jogador; // digitando o nome do jogador
+        cout << "Ok " << nome_do_jogador << ", vamos começar."<< endl; // imprimindo o nome do joogador
+
+        int resposta; // variável que armazena a resposta para a idade
+        cout << nome_do_jogador << ", você é maior de idade?" << endl;
+        cout << "Digite 1, para sim, ou 2 para não." << endl;
+        cin >> resposta;
+        if (resposta==1)
+        {
+            cout << "Que alívio! Clique em continuar e divirta-se!";
+        }
+        if (resposta==2)
+        {
+            cout << "Então saia desse site!";
+        }
+
+    }
+
+    //agora se houverem dois jogadores
+    if (quantidade_de_jogadores ==2)
+    {
+        char nome_do_jogador1[6], nome_do_jogador2[6];
+
+        cout << "Digite nome de jogador 1: ";
+        cin>> nome_do_jogador1; // digitando o nome do jogador 1
+        cout << "Digite nome de jogador 2: ";
+        cin>> nome_do_jogador2; // digitando o nome do jogador
+
+        int resposta;
+        cout << nome_do_jogador1 << ", você é maior velho do que " << nome_do_jogador2 << "?" << endl; // interagindo com os jogadores
+        cout << "Digite 1, para sim, ou 2 para não." << endl;
+        cin >> resposta;
+        cout << nome_do_jogador2 << ", você é maior novo do que " << nome_do_jogador1 << "?" << endl; // interagindo com os jogadores
+        cout << "Digite 1, para sim, ou 2 para não." << endl;
+        cin >> resposta;
+        if (resposta==1 && resposta==1) // testando as respostas
+        {
+            cout << "Bem, faz sentido.";
+        }
+        if (resposta== 2 && resposta==2) // testando as respostas
+        {
+            cout << "É, pode ser.";
+        }
+        if ((resposta== 1 && resposta==2)|| (resposta== 2 && resposta==1)) // testando as respostas
+        {
+            cout << "Huum, talvez alguém mentiu...";
+        }
+
+
+}
+
+}
