@@ -1,0 +1,133 @@
+#include<iostream>
+#include<stdlib.h> // biblioteca necessária para usar o 'limpa tela'
+#include <windows.h> //biblioteca necessária para usar 'a lentidão'
+#include<locale.h> //usar acentos :P
+using namespace std;
+
+int main()
+{
+    setlocale(LC_ALL,"Portuguese");   //o setlocale ainda não está pronto!
+    //o trecho a seguir representa o inicio de tela:
+
+    char str1[17]= {'P','L','A','Y',' ','M','A','S','T','E','R','M','I','N','D','!','\0'};
+    int j=0;// essa variável 'j' refere-se à contagem de repetições do título
+
+    int f1; //primeira flag, para voltarmos à tela principal do jogo
+//aqui está a tela divertida:
+    do
+    {
+        for (int i=0; str1[i]!='\0'; i++)
+        {
+            cout<<str1[i]<<" ";
+            Sleep(100); // esperar 100 milisegundos
+        }
+        system("cls"); // limpar a tela
+        j++;
+    }
+    while (j<5);
+//a partir daqui começa a interação!
+    int c=0; // vari´vel 'c' refere-se a escolha (c-choose)
+
+    while(1!=0)  // esse comando é para criar um loop
+    {
+//tela estática, do menu:
+        do
+        {
+            cout<<"PLAY MASTERMIND!"<<"  by Duda, TheAssis, @riel"<<endl<<"CHOOSE:"<<endl<<endl;
+            cout<<"1 - PLAY NOW!"<<endl<<"2 - INSTRUCTIONS"<<endl<<"3 - EXIT"<<endl<<endl;
+            cin>>c;
+            system("cls");
+        }
+
+        while(c!=1&&c!=3&&c!=2);
+//aqui começa as 'respostas' do sistema:
+        if (c=1)
+        {
+            // descobrindo a quantidade de jogadores
+            int quantidade_de_jogadores;
+            cout << "Digite a quantidade de jogadores";
+            cin >> quantidade_de_jogadores;
+
+            if (quantidade_de_jogadores ==1)
+            {
+                char nome_do_jogador[6]; // string para armazenar o nome do jogador
+
+                cout << "Olá, por favor, digite nome de jogador: ";
+                cin>> nome_do_jogador; // digitando o nome do jogador
+                system ("cls"); // limpar tela
+                cout << "Ok " << nome_do_jogador << ", vamos começar."<< endl; // imprimindo o nome do joogador
+
+                int resposta; // variável que armazena a resposta para a idade
+                cout << nome_do_jogador << ", você é maior de idade?" << endl;
+                cout << "Digite 1, para sim, ou 2 para não." << endl;
+                cin >> resposta;
+                system ("cls"); // limpar tela
+
+                if (resposta==1)
+                {
+                    cout << "Que alívio! Clique em continuar e divirta-se!";
+                }
+                if (resposta==2)
+                {
+                    cout << "Então saia desse site!";
+                }
+
+            }
+
+            //agora se houverem dois jogadores
+            if (quantidade_de_jogadores ==2)
+            {
+                char nome_do_jogador1[6], nome_do_jogador2[6];
+
+
+                cout << "Digite nome de jogador 1:  ";
+                cin>> nome_do_jogador1; // digitando o nome do jogador 1
+                system("cls"); // limpar a tela
+                cout << "Digite nome de jogador 2: ";
+                cin>> nome_do_jogador2; // digitando o nome do jogador
+                system ("cls"); // limpar tela
+
+
+                int resposta;
+                cout << nome_do_jogador1 << ", você é maior velho do que " << nome_do_jogador2 << "?" << endl; // interagindo com os jogadores
+                cout << "Digite 1, para sim, ou 2 para não." << endl;
+                cin >> resposta;
+                system ("cls"); // limpar tela
+
+                cout << nome_do_jogador2 << ", você é maior novo do que " << nome_do_jogador1 << "?" << endl; // interagindo com os jogadores
+                cout << "Digite 1, para sim, ou 2 para não." << endl;
+                cin >> resposta;
+                system ("cls"); // limpar tela
+
+                if (resposta==1 && resposta==1) // testando as respostas
+                {
+                    cout << "Bem, faz sentido.";
+                }
+                if (resposta== 2 && resposta==2) // testando as respostas
+                {
+                    cout << "É, pode ser.";
+                }
+                if ((resposta== 1 && resposta==2)|| (resposta== 2 && resposta==1)) // testando as respostas
+                {
+                    cout << "Huum, talvez alguém mentiu...";
+                }
+            }
+        }
+    if(c==2)  //o dígito '2' refere-se à tela de instruções, assim:
+    {
+        cout<<"Seja bem vindo ao Mastermind! Sua tarefa e descobrir uma senha em cores que foi criada aleatoriamente.";
+        cout << "Para isso, voce deve gerar palpites ate acertar. A cada "<<endl;
+        cout<<"palpite de senha dada, voce tera como resposta uma quantidade de pinos brancos "<<endl;
+        cout<<"e pretos. O pino de cor branca representa uma cor colocada exatamente no canto"<<endl;
+        cout<<"correto, enquanto que os pinos pretos sao distribuidos quando uma cor colocada"<<endl;
+        cout<<"esta na senha, porem na posicao errada. "<<endl;
+        cout<<endl<<"PARA RETORNAR À TELA INICIAL, DIGITE ALGO E CLIQUE [ENTER]: ";
+        
+        system("cls");
+    } //aqui acaba a tela de instruções
+    if (c==3) break; //saída
+
+
+}
+cout<<"Thank you for playing MASTERMIND"<<endl<<"      by Ariel Alsina, Eduarda Valéria e Mateus de Assis."<<endl;//tela de finalização
+}
