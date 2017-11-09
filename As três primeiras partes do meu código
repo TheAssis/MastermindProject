@@ -1,10 +1,12 @@
 #include<iostream>
 #include<locale.h>
+#include<stdlib.h> // biblioteca necessária para usar o 'limpa tela'
 using namespace std;
 
 int main ()
 {
-    setlocale(LC_ALL,"Portuguese");
+    setlocale(LC_ALL,"Portuguese"); // colocar acentuação
+
     // descobrindo a quantidade de jogadores
     int quantidade_de_jogadores;
     cout << "Digite a quantidade de jogadores";
@@ -16,12 +18,15 @@ int main ()
 
         cout << "Olá, por favor, digite nome de jogador: ";
         cin>> nome_do_jogador; // digitando o nome do jogador
+        system ("cls"); // limpar tela
         cout << "Ok " << nome_do_jogador << ", vamos começar."<< endl; // imprimindo o nome do joogador
 
         int resposta; // variável que armazena a resposta para a idade
         cout << nome_do_jogador << ", você é maior de idade?" << endl;
         cout << "Digite 1, para sim, ou 2 para não." << endl;
         cin >> resposta;
+        system ("cls"); // limpar tela
+
         if (resposta==1)
         {
             cout << "Que alívio! Clique em continuar e divirta-se!";
@@ -37,19 +42,27 @@ int main ()
     if (quantidade_de_jogadores ==2)
     {
         char nome_do_jogador1[6], nome_do_jogador2[6];
+        
 
-        cout << "Digite nome de jogador 1: ";
+        cout << "Digite nome de jogador 1:  ";
         cin>> nome_do_jogador1; // digitando o nome do jogador 1
+        system("cls"); // limpar a tela
         cout << "Digite nome de jogador 2: ";
         cin>> nome_do_jogador2; // digitando o nome do jogador
+        system ("cls"); // limpar tela
+
 
         int resposta;
         cout << nome_do_jogador1 << ", você é maior velho do que " << nome_do_jogador2 << "?" << endl; // interagindo com os jogadores
         cout << "Digite 1, para sim, ou 2 para não." << endl;
         cin >> resposta;
+        system ("cls"); // limpar tela
+
         cout << nome_do_jogador2 << ", você é maior novo do que " << nome_do_jogador1 << "?" << endl; // interagindo com os jogadores
         cout << "Digite 1, para sim, ou 2 para não." << endl;
         cin >> resposta;
+        system ("cls"); // limpar tela
+
         if (resposta==1 && resposta==1) // testando as respostas
         {
             cout << "Bem, faz sentido.";
